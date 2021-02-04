@@ -2,7 +2,8 @@ FROM gitpod/workspace-full
 
 COPY --from=mlocati/php-extension-installer:1.1.41 /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN apt install \
+RUN sudo apt-get update -q && \
+    sudo apt-get install -yq \
     php7.4-gd \
     php7.4-gmp \
     php7.4-opcache \
